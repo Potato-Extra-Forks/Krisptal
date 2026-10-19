@@ -185,7 +185,7 @@ function EditorGameView:drawCollision(collision, offset_x, offset_y, view_zoom, 
     love.graphics.origin()
     love.graphics.translate(offset_x or 0, offset_y or 0)
     love.graphics.scale(view_zoom or 1, view_zoom or 1)
-    if collision.parent then love.graphics.applyTransform(collision.parent:getFullTransform()) end
+    if collision:getOwner() then love.graphics.applyTransform(collision:getOwner():getFullTransform()) end
     collision:draw(r, g, b, a)
     love.graphics.pop()
 end
